@@ -1,0 +1,59 @@
+<div class="container-fluid page-cover1">
+  <div class="page-header1">
+    <h1>All Events</h1>
+  </div>
+</div>
+
+<div class="container" style="margin-top:2%;">
+  <div class="row text-right">
+    <% if session[:user_role] == 1 %>
+      <a href="<%= new_event_path %>" class="btn btn-primary">Create New Event</a>
+    <% end %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>event name</th>
+          <th>start date</th>
+          <th>end date</th>
+          <th>action</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><img src="<%=(url_for(event.avatar))%>" class="event-img"></td>
+            <td class="event-td"><%= event.name.capitalize %>&nbsp;<sup class="suptext"><em><%= event.status %></em></sup></td>
+            <td class="event-td"><%= event.start_datetime.strftime("%d-%b-%Y") %></td>
+            <td class="event-td"><%= event.end_datetime.strftime("%d-%b-%Y") %></td>
+            <td class="event-td">
+              <a href="<%= user_list_path(event)%>" data-toggle="tooltip" data-placement="bottom" title="Booked Users List">
+                <span class="glyphicon glyphicon-eye-open"></span>
+              </a>
+              <% if session[:user_role] == 1 %>
+                <a href="<%= edit_event_path(event)%>" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a href="<%= event_path(event) %>" data-method="delete" data-confirm="Are you sure?" rel="nofollow" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </a>
+              <% end %>
+            </td>
+            <td class="event-td">
+              <% if session[:user_role] == 1 %>
+                <a href="<%= user_list_path(event) %>" class="btn btn-success">Booked List</a>
+              <% else %>
+                <a href="<%= event_path(event) %>" class="btn btn-success">buy tickets</a>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

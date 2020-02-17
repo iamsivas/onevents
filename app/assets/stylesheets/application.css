@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require toastr
+ */
+
+body{
+	font-family: 'Lato', sans-serif !important;
+}
+
+.page-cover{
+  background-image: url('/assets/cover.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+}
+
+.navbar{
+  margin-bottom: 0px !important;
+}
+
+.suptext{
+  color: #D10000;
+}
+
+.page-cover1{
+  background-size: cover;
+  background: #fff url('/assets/cover.jpg') center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 280px;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.page-header1{
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  margin-top:7% !important;
+  text-align: center;
+}
+
+.page-header1 h1{
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+}
+
+.event-img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.welcome-img{
+  height: 200px;
+  width: 100%;
+}
+
+table>thead>tr>th{
+  text-transform: capitalize;
+}
+
+table>tbody>tr>td>a{
+  text-transform: capitalize;
+  padding: 0px 5px;
+  text-decoration: none;
+}
+
+.event-td{
+  vertical-align: middle !important;
+  text-align: justify-all;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.main-head{
+  font-family: 'Poppins', sans-serif;
+  color: #0094CC;
+}
+
+.login-cover{
+  position: relative;
+  background-size: cover;
+  background: #fff url('/assets/login.jpg') center center;
+  background-repeat: no-repeat;
+  height: 400px;
+  text-align: center;
+  padding: 10rem;
+  color: #fff;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.login-cover h1{
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-cover p{
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.signup-cover{
+  position: relative;
+  background-size: cover;
+  background: #fff url('/assets/signup.jpg') center center;
+  background-repeat: no-repeat;
+  height: 480px;
+  text-align: center;
+  padding: 10rem;
+  color: #fff;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.signup-cover h1{
+  font-family: 'Poppins', sans-serif;
+}
+
+.signup-cover p{
+  font-size: 24px;
+  margin-bottom: 24px;
+}

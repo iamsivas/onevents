@@ -1,0 +1,34 @@
+<div class="container-fluid page-cover1">
+  <div class="page-header1">
+    <h1>OnEvents</h1>
+    <h3>Events Management</h3>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row">
+	  <% @events.each do |event| %>
+	  	<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+	  		<div class="panel panel-default">
+	  			<img src="<%= url_for(event.avatar) %>" class="card-img-top">
+	  			<div class="panel-body">
+	  				<div class="row text-center">
+	  					<h5 class="main-head"><%= event.name %></h5>
+	  				</div>
+	  				<div class="row text-center">
+	  					<p><%= Venue.find(event.venue_id).name %>, <%= Venue.find(event.venue_id).area %>, <%= City.find(event.city_id).name %></p>
+	  				</div>
+	  				<div class="row">
+	  					<div class="col-md-6" style="padding-top: 8px;">
+	  						<%= event.start_datetime.strftime("%d-%b-%Y")%>
+	  					</div>
+	  					<div class="col-md-6">
+	  						<a href="" class="btn btn-danger">Book Tckets</a>
+	  					</div>
+	  				</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  <% end %>
+	</div>
+</div>

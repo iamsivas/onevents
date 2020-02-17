@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="page-header">
+		<div class="row">
+			<div class="col-md-6"><h4><%= @event.name %>&nbsp;<sup class="suptext"><em><%= @event.status %></em></sup></h4></div>
+			<div class="col-md-6 text-right"><a href="<%=events_path%>" class="btn btn-danger">Back</a></div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-7">
+			<%= image_tag(url_for(@event.avatar), height: "430px", width: "100%") if @event.avatar %>
+		</div>
+
+		<div class="col-md-5">
+			<p><b><%= @event.description %></b></p>
+			<p><b>Event Venue:&nbsp;</b><%= Venue.find(@event.venue_id).name %>, <%= Venue.find(@event.venue_id).area %>, <%= City.find(Venue.find(@event.venue_id).city_id).name %></p>
+			<p><b>Event Start:&nbsp;</b><%= @event.start_datetime.strftime("%d %B %Y - %I:%M %P") %></p>
+			<p><b>Event End:&nbsp;</b><%= @event.end_datetime.strftime("%d %B %Y - %I:%M %P") %></p>
+
+			<div class="alert alert-info">
+				<div class="row text-center"><h4>Buy Tickets</h4><hr></div>
+				<div class="row" style="padding: 0rem 2rem;">
+					<p><b>Entry Fee:&nbsp;</b><i class="fa fa-rupee" style="font-size:12px"></i><%= @event.entry_fee%></p>
+				</div>
+				<% @event_booking.total_ticket = 0 %>
+				<div class="row form-inline" style="padding: 0rem 2rem;">
+					<div class="form-group">
+            <label for="tickets">Choose no of tickets</label>
+            <select class="form-control" id="noofticket">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+					</div>
+				</div>
+				<% @event_booking.total_price = @event.entry_fee * @event_booking.total_ticket %>
+				<div class="row text-right" style="padding: 1rem 2rem 0rem 0rem;">
+          <button type="button" class="btn btn-danger" id="tkt_book">Book</button>
+				</div>
+			</div>
+
+			<div class="alert alert-danger">
+				<p><b>Tickets Left:&nbsp;</b><%= @event.ticket_left %></p>
+			</div>
+		</div>
+	</div>
+</div>

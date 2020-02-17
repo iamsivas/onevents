@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="page-header">
+		<div class="row">
+			<div class="col-md-6"><h4>Users List</h4></div>
+			<div class="col-md-6 text-right">
+				<a href="<%=events_path%>" class="btn btn-danger">Back</a>
+			</div>
+		</div>	
+	</div>	
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>sl. no</th>
+						<th>name</th>
+						<th>gender</th>
+						<th>no of tickets</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<%i = 1%>
+					<% @users.each do |user| %>
+						<tr>
+							<td><%= i %></td>
+ 							<td><%= User.find(user.user_id).name %></td>
+							<td><%= User.find(user.user_id).gender %></td>
+							<td><%= user.total_ticket %></td>
+						</tr>
+						<%i += 1%>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
